@@ -1,0 +1,36 @@
+<section class="formbody" fxLayout="row" fxLayoutAlign="center center">
+    <section class="form-data">
+        <h3>Login</h3>
+        <form [formGroup]="loginForm">
+            <section>
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Username" formControlName="username">
+                    <mat-error *ngIf="loginForm.get('username').errors?.required && loginForm.get('username').touched">
+                        Please enter username</mat-error>
+                    <mat-error *ngIf="loginForm.get('username').hasError('username')">Please enter alphanumeric values
+                    </mat-error>
+                </mat-form-field>
+            </section>
+            <section>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').touched">
+                        Please enter password</mat-error>
+                    <mat-error *ngIf="loginForm.get('password').hasError('pattern')">Password must contain more than 8
+                        characters, 1 upper case letter, and 1 special character
+                    </mat-error>
+                </mat-form-field>
+            </section>
+            <section>
+            <button class="btn-login" mat-button [disabled]="!loginForm.valid" (click)="onLogin()" >Login</button>
+            </section>
+            <section>
+                    New to us?<a routerLink="/register" (click)="openRegister()">Signup Now</a>
+            </section>
+        </form>
+    </section>
+</section>
+
+<p [ngClass]=""></p>

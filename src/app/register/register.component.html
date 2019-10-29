@@ -1,0 +1,86 @@
+<section class="formbody" fxLayout="row" fxLayoutAlign="center center">
+        <!-- <i class="fa fa-times" align="right"></i> -->
+    <section class="form-data">
+        <h3>Create your account</h3>
+    <form [formGroup]="registerForm">
+        <section fxLayout="row" fxLayoutGap="50px">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" formControlName="firstName">
+                <mat-error
+                    *ngIf="registerForm.get('firstName').errors?.required && registerForm.get('firstName').touched">
+                    Please enter First Name</mat-error>
+                <mat-error *ngIf="registerForm.get('firstName').hasError('pattern')">Please enter alphabates only
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName">
+                <mat-error
+                    *ngIf="registerForm.get('lastName').errors?.required && registerForm.get('lastName').touched">
+                    Please enter Last Name</mat-error>
+                <mat-error *ngIf="registerForm.get('lastName').hasError('pattern')">Please enter alphabates only
+                </mat-error>
+            </mat-form-field>
+        </section>
+        <section fxLayout="row" fxLayoutGap="50px">
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contact Number</mat-label>
+                <input matInput placeholder="Contact Number" formControlName="contactNo">
+                <mat-error
+                    *ngIf="registerForm.get('contactNo').errors?.required && registerForm.get('contactNo').touched">
+                    Please enter contact number.</mat-error>
+                <mat-error *ngIf="registerForm.get('contactNo').hasError('pattern')">Please enter valid contact number.
+                </mat-error>
+            </mat-form-field>
+
+        </section>
+        <section fxLayout="row" fxLayoutGap="50px">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="registerForm.get('email').errors?.required && registerForm.get('email').touched">
+                    Please enter email id</mat-error>
+                <mat-error *ngIf="registerForm.get('email').hasError('pattern')">Please enter valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" formControlName="password">
+                <mat-error
+                    *ngIf="registerForm.get('password').errors?.required && registerForm.get('password').touched">
+                    Please enter password.</mat-error>
+                <mat-error *ngIf="registerForm.get('password').hasError('pattern')">Password must have 8 characters
+                    ,alphanumeric with one special character.
+                </mat-error>
+            </mat-form-field>
+        </section>
+        <section fxLayout="row" fxLayoutGap="50px">
+            <mat-form-field>
+                <mat-label>Government Id</mat-label>
+                <input matInput placeholder="Government Id" formControlName="govtId">
+                <mat-error *ngIf="registerForm.get('govtId').errors?.required && registerForm.get('govtId').touched">
+                    Please enter correct id.</mat-error>
+                <mat-error *ngIf="registerForm.get('govtId').hasError('pattern')">Please enter correct government id.
+                </mat-error>
+            </mat-form-field>
+            <mat-radio-group formControlName="gender" name="radio">
+                <mat-radio-button value="M">Male</mat-radio-button>
+                <mat-radio-button value="F">Female</mat-radio-button>
+            </mat-radio-group>
+        </section>
+
+        <section mat-dialog-actions>
+          <button mat-button>Submit</button>
+          <button mat-button (click)="onCancel()">Close</button>
+        </section>
+
+    </form>
+    </section>
+</section>

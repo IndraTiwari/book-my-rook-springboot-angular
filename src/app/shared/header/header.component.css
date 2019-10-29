@@ -1,0 +1,15 @@
+header {
+    font-family: fantasy;
+    font-size: 40px;
+    font-style: unset;
+    text-align: center;
+    position: relative;
+    top: -40px;
+}
+p{
+    font-family: fantasy;
+    color:#DBD8F0;
+     background-color: rgb(77, 77, 82);
+    font-style: unset;
+    text-align: center;
+   }
